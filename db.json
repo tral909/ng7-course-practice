@@ -5,6 +5,18 @@
       "email": "wfm@mail.ru",
       "password": "12345678",
       "name": "Администратор"
+    },
+    {
+      "email": "indorm1992@mail.ru",
+      "password": "123123",
+      "name": "123",
+      "id": 2
+    },
+    {
+      "email": "indorm1992@mail.ru",
+      "password": "1231233",
+      "name": "123",
+      "id": 3
     }
   ],
   "bill": {
