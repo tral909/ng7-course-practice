@@ -3,19 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { User } from '../models/user.model';
+import { BaseApi } from '../core/base-api';
 
 @Injectable()
-export class UsersService {
+export class UsersService extends BaseApi {
 
     private userUri: string = 'http://localhost:3000/users';
 
-    constructor(private http: HttpClient) {}
+    constructor(public http: HttpClient) {
+        super(http);
+    }
 
     getUserByEmail(email: string) {
-        return this.http.get(this.userUri + `?email=${email}`)
+        return this.get(`users?email=${email}`)
     }
 
     createNewUser(user: User) {
-        return this.http.post(this.userUri, user);
+        return this.post('users', user);
     }
 }
