@@ -8,8 +8,6 @@ import { BaseApi } from '../core/base-api';
 @Injectable()
 export class UsersService extends BaseApi {
 
-    private userUri: string = 'http://localhost:3000/users';
-
     constructor(public http: HttpClient) {
         super(http);
     }
