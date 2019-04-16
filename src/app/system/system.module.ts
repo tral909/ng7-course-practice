@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule }   from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { SystemRoutingModule } from './system-routing.module';
@@ -18,12 +19,14 @@ import { MomentPipe } from './shared/pipes/moment.pipe';
 import { AddEventComponent } from './records-page/add-event/add-event.component';
 import { AddCategoryComponent } from './records-page/add-category/add-category.component';
 import { EditCategoryComponent } from './records-page/edit-category/edit-category.component';
+import { CategoriesService } from './shared/services/categories.service';
 
 @NgModule({
     imports: [
         CommonModule,
         SharedModule,
-        SystemRoutingModule
+        SystemRoutingModule,
+        FormsModule
     ],
     declarations: [
         BillPageComponent,
@@ -41,6 +44,6 @@ import { EditCategoryComponent } from './records-page/edit-category/edit-categor
         AddCategoryComponent,
         EditCategoryComponent
     ],
-    providers: [BillService]
+    providers: [BillService, CategoriesService]
 })
 export class SystemModule {}
