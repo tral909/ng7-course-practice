@@ -11,7 +11,9 @@
 <section class="section" *ngIf="isLoaded">
     <div class="row">
         <div class="col-md-6">
-            <regorov-add-event></regorov-add-event>
+            <regorov-add-event
+                [categories]="categories"
+            ></regorov-add-event>
         </div>
         <div class="col-md-6">
             <regorov-add-category (onCategoryAdd)="newCategoryAdded($event)"></regorov-add-category>
