@@ -18,4 +18,8 @@ export class BillService extends BaseApi {
     getCurrency(base: string = 'RUB') {
         return this.get('currency');
     }
+
+    updateBill(bill: Bill) {
+        return this.put('bill', bill);
+    }
 }
