@@ -3,7 +3,12 @@
     Страница записей <span class="sparkline bar"></span>
     </h3>
 </div>
-<section class="section">
+
+<section class="section text-center" *ngIf="!isLoaded">
+    Loading ...
+</section>
+
+<section class="section" *ngIf="isLoaded">
     <div class="row">
         <div class="col-md-6">
             <regorov-add-event></regorov-add-event>
@@ -14,7 +19,10 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <regorov-edit-category></regorov-edit-category>
+            <regorov-edit-category
+                [categories]="categories"
+                (onCategoryEdit)="categoryWasEdited($event)"
+            ></regorov-edit-category>
         </div>
     </div>
 </section>

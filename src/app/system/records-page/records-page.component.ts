@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Category } from '../shared/models/category.model';
+import { CategoriesService } from '../shared/services/categories.service';
 
 @Component({
   selector: 'regorov-records-page',
@@ -9,13 +10,26 @@ import { Category } from '../shared/models/category.model';
 })
 export class RecordsPageComponent implements OnInit {
 
-  constructor() { }
+  categories: Category[];
+  isLoaded = false;
+
+  constructor(private categoriesService: CategoriesService) { }
 
   ngOnInit() {
+      this.categoriesService.getCategories()
+          .subscribe((categories: Category[]) => {
+              this.categories = categories;
+              this.isLoaded = true;
+          });
   }
 
   newCategoryAdded(category: Category) {
-      //add to array
+      this.categories.push(category);
   }
 
+  categoryWasEdited(category: Category) {
+    const index = this.categories
+      .findIndex(c => c.id === category.id);
+    this.categories[index] = category;
+  }
 }

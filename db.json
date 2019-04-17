@@ -36,6 +36,11 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
+    },
+    {
+      "name": "new2",
+      "capacity": 1222,
+      "id": 4
     }
   ],
   "events": [
