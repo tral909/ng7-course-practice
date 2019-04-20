@@ -13,4 +13,8 @@ export class EventsService extends BaseApi {
     addEvent(event: RegorovEvent) {
         return this.post('events', event);
     }
+
+    getEvents() {
+        return this.get('events');
+    }
 }
