@@ -6,15 +6,22 @@ import { RegorovEvent } from '../models/event.model';
 
 @Injectable()
 export class EventsService extends BaseApi {
+
+    private api: string = 'events';
+
     constructor(public http: HttpClient) {
         super(http);
     }
 
     addEvent(event: RegorovEvent) {
-        return this.post('events', event);
+        return this.post(this.api, event);
     }
 
     getEvents() {
-        return this.get('events');
+        return this.get(this.api);
+    }
+
+    getEventById(id: string) {
+        return this.get(this.api + `/${id}`);
     }
 }
