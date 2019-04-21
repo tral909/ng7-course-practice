@@ -18,6 +18,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   isLoaded = false;
   chartData = [];
   s1: Subscription;
+  isFilterVisible = false;
 
   constructor(
       private categoriesService: CategoriesService,
@@ -55,4 +56,21 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
           });
       });
   }
+
+  private toggleFilterVisibility(dir: boolean) {
+    this.isFilterVisible = dir;
+  }
+
+  openFilter() {
+    this.toggleFilterVisibility(true);
+  }
+
+  onFilterCancel() {
+    this.toggleFilterVisibility(false);
+  }
+
+  onFilterApply(filterData) {
+    console.log(filterData);
+  }
+
 }

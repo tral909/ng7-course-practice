@@ -1,14 +1,26 @@
 <div class="title-block">
-    <h3 class="title">
+    <h3 class="title pull-left">
     Страница истории <span class="sparkline bar"></span>
     </h3>
+    <div class="pull-right">
+        <button class="btn-sm btn btn-primary-outline" (click)="openFilter()">
+        <i class="fa fa-filter"></i>
+        </button>
+    </div>
 </div>
+
 <div *ngIf="!isLoaded" class="text-center">Loading ...</div>
 <div *ngIf="isLoaded">
     <regorov-history-chart [data]="chartData"></regorov-history-chart>
     <regorov-history-events
-        [categories]="categories"
-        [events]="events"
+    [categories]="categories"
+    [events]="events"
     ></regorov-history-events>
-    <regorov-history-filter></regorov-history-filter>
+    <div *ngIf="isFilterVisible">
+        <regorov-history-filter
+            (onFilterApply)="onFilterApply($event)"
+            (onFilterCancel)="onFilterCancel()"
+            [categories]="categories"
+        ></regorov-history-filter>
+    </div>
 </div>
