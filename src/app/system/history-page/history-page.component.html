@@ -3,6 +3,9 @@
     Страница истории <span class="sparkline bar"></span>
     </h3>
 </div>
-<regorov-history-chart></regorov-history-chart>
-<regorov-history-events></regorov-history-events>
-<regorov-history-filter></regorov-history-filter>
+<div *ngIf="!isLoaded" class="text-center">Loading ...</div>
+<div *ngIf="isLoaded">
+    <regorov-history-chart [data]="chartData"></regorov-history-chart>
+    <regorov-history-events></regorov-history-events>
+    <regorov-history-filter></regorov-history-filter>
+</div>
